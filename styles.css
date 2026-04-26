@@ -1,0 +1,151 @@
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #1e1e2f;
+    color: white;
+    padding: 10px 10px;
+}
+
+.logo {
+    background: #ff4d4d;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.titulo-principal {
+    font-size: 20px;
+}
+
+.menu-hamburguer i {
+    font-size: 24px;
+    cursor: pointer;
+}
+.menu-hamburguer i:hover {
+    color: #b1adad;
+}
+
+/* LAYOUT PRINCIPAL */
+section {
+    display: flex;
+}
+
+/* MENU LATERAL */
+nav {
+    width:220px;
+    background: #2c2c3e;
+    min-height: 100vh;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav li a {
+    text-decoration: none;
+    color: white;
+}
+
+.opcao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+.opcao:hover {
+    background: #3d3d55;
+}
+
+/* TEXTO DO MENU */
+.rotulo {
+    flex: 1;
+    margin-left: 0px;
+}
+
+/* CONTEÚDO PRINCIPAL */
+main {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* CARTÕES */
+.cartao {
+    background: white;
+    width: 300px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    padding: 15px;
+    transition: 0.3s;
+}
+
+.cartao:hover {
+    transform: translateY(-5px);
+}
+
+/* CONTEÚDO DO CARTÃO */
+.titulo-da-noticia h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.classificacao-da-noticia {
+    margin-bottom: 10px;
+}
+
+.categoria {
+    background: #ff4d4d;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.descrição p {
+    color: #555;
+    font-size: 14px;
+}
+
+.corpo-do-cartao {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.titulo-da-noticia {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.descrição {
+    font-size: 14px;
+    color: #555;
+}
+
+.cartao {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
