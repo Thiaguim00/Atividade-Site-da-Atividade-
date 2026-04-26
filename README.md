@@ -7,6 +7,13 @@ Matricula:904562
 Proposta de projeto escolhida:Coleções e Itens 
 Breve descrição sobre seu projeto: Vou fazer um site de itens de jogos ou coisas raras online para exposição e saber que é raro
 
-ATUALIZAÇÃO COM BOOTSTRAP
+> ATUALIZAÇÃO COM BOOTSTRAP
+
+##versao com bootstrap
+
 ![Mobile boots](img/bocell.png)
+
 ![Pc boots](img/bo.png)
+
+
+
