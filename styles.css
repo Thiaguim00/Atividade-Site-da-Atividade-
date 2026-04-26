@@ -95,6 +95,7 @@ main {
 .cartao {
     background: white;
     width: 300px;
+    width: 28%;
     border-radius: 12px;
     box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
     padding: 15px;
@@ -148,4 +149,31 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+    section {
+        flex-direction: column;
+    }
+
+    nav {
+        width: 100%;
+        min-height: auto;
+    }
+
+    main {
+        justify-content: center;
+    }
+
+    .cartao {
+        max-width: 100%;
+    }
+    .logo {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+    .titulo-da-principal {
+        font-size: 18px;
+    }
 }
