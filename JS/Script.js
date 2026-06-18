@@ -21,7 +21,7 @@ const dados = {
 
             destaque: true,
 
-            imagem_principal: "./img do site/cc.webp"
+            imagem_principal: "../img do site/cc.webp"
         },
 
         {
@@ -43,7 +43,7 @@ const dados = {
 
             destaque: true,
 
-            imagem_principal: "./img do site/triple yoru.webp"
+            imagem_principal: "../img do site/triple yoru.webp"
         },
 
         {
@@ -65,7 +65,7 @@ const dados = {
 
             destaque: false,
 
-            imagem_principal: "./img do site/marine cap.webp"
+            imagem_principal: "../img do site/marine cap.webp"
         }
 
     ]
@@ -183,7 +183,7 @@ if (detalhesContainer) {
                                 ${item.evento}
                             </p>
 
-                            <a href="index.html" class="btn btn-dark">
+                            <a href="../Html/home.html" class="btn btn-dark">
                                 Voltar
                             </a>
 
