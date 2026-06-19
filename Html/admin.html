@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Item</title>
+
+    <link rel="stylesheet" href="../Css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">R</div>
+        <h1 class="titulo-principal">Raros.com</h1>
+    </header>
+
+    <main class="container mt-4">
+
+        <div class="cartao">
+
+            <h2 class="mb-4">
+                Adicionar Novo Item
+            </h2>
+
+            <form id="form-item">
+
+                <div class="mb-3">
+                    <label>Nome</label>
+                    <input type="text" id="nome" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label>Jogo</label>
+                    <input type="text" id="jogo" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label>Descrição</label>
+                    <input type="text" id="descricao" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label>Conteúdo</label>
+                    <textarea id="conteudo" class="form-control"></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label>Raridade</label>
+                    <input type="text" id="raridade" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label>Valor Trade</label>
+                    <input type="text" id="valor_trade" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label>Evento</label>
+                    <input type="text" id="evento" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label>URL da Imagem</label>
+                    <input type="text" id="imagem_principal" class="form-control">
+                </div>
+
+                <button class="btn btn-danger">
+                    Salvar Item
+                </button>
+
+            </form>
+
+        </div>
+
+    </main>
+
+    <script src="../JS/admin.js"></script>
+
+</body>
+</html>

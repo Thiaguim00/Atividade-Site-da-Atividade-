@@ -55,6 +55,7 @@ body > section {
 }
 
 /* MENU LATERAL */
+
 nav {
     width: 220px;
     background: #2c2c3e;
@@ -83,9 +84,64 @@ nav a {
     background: #3d3d55;
 }
 
-/* TEXTO MENU */
 .rotulo {
     flex: 1;
+}
+
+/* ===================================== */
+/* MENU USUÁRIO */
+/* ===================================== */
+
+.menu-divisor {
+    border: none;
+    border-top: 1px solid #555;
+    margin: 15px 10px;
+}
+
+#usuario-menu {
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+}
+
+#usuario-menu strong {
+    color: #ff4d4d;
+    font-size: 16px;
+}
+
+.btn-menu-admin {
+    width: calc(100% - 20px);
+    margin: 10px;
+    border: none;
+    background: #ff4d4d;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .3s;
+    font-weight: bold;
+}
+
+.btn-menu-admin:hover {
+    background: #e63c3c;
+}
+
+.btn-menu-sair {
+    width: calc(100% - 20px);
+    margin: 10px;
+    border: none;
+    background: #444;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .3s;
+    font-weight: bold;
+}
+
+.btn-menu-sair:hover {
+    background: #666;
 }
 
 /* ===================================== */
@@ -116,7 +172,6 @@ main {
     box-shadow: 0px 8px 18px rgba(0,0,0,0.2);
 }
 
-/* CONTEÚDO DO CARD */
 .corpo-do-cartao {
     display: flex;
     flex-direction: column;
@@ -136,7 +191,6 @@ main {
     border-radius: 8px;
 }
 
-/* CATEGORIA */
 .categoria-da-noticia {
     background: #ff4d4d;
     color: white;
@@ -147,7 +201,6 @@ main {
     font-weight: bold;
 }
 
-/* TEXTO */
 .corpo-do-cartao p {
     font-size: 14px;
     color: #555;
@@ -155,7 +208,6 @@ main {
     line-height: 1.5;
 }
 
-/* BOTÃO */
 .btn-dark {
     margin-top: auto;
     border-radius: 8px;
@@ -189,7 +241,7 @@ footer {
 }
 
 .carousel-caption {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0,0,0,0.5);
     padding: 15px;
     border-radius: 12px;
 }
@@ -205,11 +257,9 @@ footer {
     font-size: 16px;
 }
 
-/* BOTÕES DO CARROSSEL */
-
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0,0,0,0.5);
     border-radius: 50%;
     padding: 20px;
 }

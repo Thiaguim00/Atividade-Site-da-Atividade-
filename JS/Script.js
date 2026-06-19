@@ -1,122 +1,77 @@
-const dados = {
-
-    itens: [
-
-        {
-            id: 1,
-
-            nome: "Candy Cane",
-
-            jogo: "Grand Piece Online",
-
-            descricao: "Espada limitada do evento de natal.",
-
-            conteudo: "Candy Cane foi uma arma exclusiva de evento no GPO. Atualmente ela não pode mais ser obtida normalmente, tornando-se extremamente rara.",
-
-            raridade: "Limited",
-
-            valor_trade: "Alto",
-
-            evento: "Natal 2021",
-
-            destaque: true,
-
-            imagem_principal: "../img do site/cc.webp"
-        },
-
-        {
-            id: 2,
-
-            nome: "True Triple Yoru",
-
-            jogo: "Blox Fruits",
-
-            descricao: "Uma das espadas mais raras do jogo.",
-
-            conteudo: "True Triple Yoru é extremamente rara e associada a contas especiais e administradores.",
-
-            raridade: "Admin / Unobtainable",
-
-            valor_trade: "Inestimável",
-
-            evento: "Especial",
-
-            destaque: true,
-
-            imagem_principal: "../img do site/triple yoru.webp"
-        },
-
-        {
-            id: 3,
-
-            nome: "Marine Cap",
-
-            jogo: "Grand Piece Online",
-
-            descricao: "Acessório extremamente raro.",
-
-            conteudo: "Marine Cap é um item antigo e difícil de encontrar atualmente no GPO.",
-
-            raridade: "Admin / Unobtainable",
-
-            valor_trade: "Absurdamente alto",
-
-            evento: "Admin",
-
-            destaque: false,
-
-            imagem_principal: "../img do site/marine cap.webp"
-        }
-
-    ]
-};
-
 
 // =======================================
 // HOME PAGE
 // =======================================
 
-const cardsContainer = document.getElementById("cards-container");
+async function carregarItens() {
 
-if (cardsContainer) {
+    const cardsContainer =
+        document.getElementById("cards-container");
 
-    dados.itens.forEach(item => {
+    if (!cardsContainer) return;
 
-        cardsContainer.innerHTML += `
+    try {
 
-            <div class="col-md-4 col-12 mb-4">
+        const resposta = await fetch(
+            "http://localhost:3000/itens"
+        );
 
-                <div class="cartao">
+        const itens = await resposta.json();
 
-                    <div class="corpo-do-cartao">
+        cardsContainer.innerHTML = "";
 
-                        <h1>${item.nome}</h1>
+        itens.forEach(item => {
 
-                        <img src="${item.imagem_principal}" alt="${item.nome}">
+            cardsContainer.innerHTML += `
 
-                        <span class="categoria-da-noticia">
-                            ${item.jogo}
-                        </span>
+                <div class="col-md-4 col-12 mb-4">
 
-                        <p>${item.descricao}</p>
+                    <div class="cartao">
 
-                        <p>
-                            <strong>Raridade:</strong>
-                            ${item.raridade}
-                        </p>
+                        <div class="corpo-do-cartao">
 
-                        <a href="detalhes.html?id=${item.id}" class="btn btn-dark">
-                            Ver detalhes
-                        </a>
+                            <h1>${item.nome}</h1>
+
+                            <img
+                                src="${item.imagem_principal || '../img do site/logosite.png'}"
+                                alt="${item.nome}"
+                            >
+
+                            <span class="categoria-da-noticia">
+                                ${item.jogo}
+                            </span>
+
+                            <p>${item.descricao}</p>
+
+                            <p>
+                                <strong>Raridade:</strong>
+                                ${item.raridade}
+                            </p>
+
+                            <a
+                                href="detalhes.html?id=${item.id}"
+                                class="btn btn-dark"
+                            >
+                                Ver detalhes
+                            </a>
+
+                        </div>
 
                     </div>
 
                 </div>
 
-            </div>
+            `;
+        });
 
-        `;
-    });
+    } catch (erro) {
+
+        console.error(
+            "Erro ao carregar itens:",
+            erro
+        );
+
+    }
 
 }
 
@@ -125,20 +80,35 @@ if (cardsContainer) {
 // PÁGINA DE DETALHES
 // =======================================
 
-const detalhesContainer = document.getElementById("detalhes-container");
+async function carregarDetalhes() {
 
-if (detalhesContainer) {
+    const detalhesContainer =
+        document.getElementById(
+            "detalhes-container"
+        );
 
-    // PEGA O ID DA URL
-    const parametros = new URLSearchParams(window.location.search);
+    if (!detalhesContainer) return;
 
-    const id = Number(parametros.get("id"));
+    const parametros =
+        new URLSearchParams(
+            window.location.search
+        );
 
-    // PROCURA O ITEM
-    const item = dados.itens.find(item => item.id === id);
+    const id =
+        parametros.get("id");
 
-    // SE ENCONTROU
-    if (item) {
+    try {
+
+        const resposta = await fetch(
+            `http://localhost:3000/itens/${id}`
+        );
+
+        if (!resposta.ok) {
+            throw new Error("Item não encontrado");
+        }
+
+        const item =
+            await resposta.json();
 
         detalhesContainer.innerHTML = `
 
@@ -152,7 +122,11 @@ if (detalhesContainer) {
 
                             <h1>${item.nome}</h1>
 
-                            <img src="${item.imagem_principal}" alt="${item.nome}">
+                            <img
+                                src="${item.imagem_principal || '../img do site/logosite.png'}"
+                                alt="${item.nome}"
+                                onerror="this.src='../img do site/logosite.png'"
+                            >
 
                             <span class="categoria-da-noticia">
                                 ${item.jogo}
@@ -183,7 +157,10 @@ if (detalhesContainer) {
                                 ${item.evento}
                             </p>
 
-                            <a href="../Html/home.html" class="btn btn-dark">
+                            <a
+                                href="../Html/home.html"
+                                class="btn btn-dark"
+                            >
                                 Voltar
                             </a>
 
@@ -196,10 +173,8 @@ if (detalhesContainer) {
             </div>
 
         `;
-    }
 
-    // SE NÃO ENCONTROU
-    else {
+    } catch (erro) {
 
         detalhesContainer.innerHTML = `
 
@@ -210,5 +185,207 @@ if (detalhesContainer) {
             </div>
 
         `;
+
     }
+
 }
+
+
+// =======================================
+// USUÁRIO LOGADO
+// =======================================
+
+function carregarUsuario() {
+
+    const usuarioContainer =
+        document.getElementById(
+            "usuario-logado"
+        );
+
+    if (!usuarioContainer) return;
+
+    const usuario =
+        JSON.parse(
+            localStorage.getItem(
+                "usuarioLogado"
+            )
+        );
+
+    if (usuario) {
+
+        usuarioContainer.innerHTML = `
+
+            <div class="d-flex align-items-center gap-2">
+
+                <span>
+
+                    Olá,
+
+                    <strong>${usuario.nome}</strong>
+
+                </span>
+
+                <button
+                    class="btn btn-sm btn-outline-danger"
+                    onclick="logout()"
+                >
+
+                    Sair
+
+                </button>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+// =======================================
+// ADMIN
+// =======================================
+
+function verificarAdmin() {
+
+    const areaAdmin =
+        document.getElementById(
+            "area-admin"
+        );
+
+    if (!areaAdmin) return;
+
+    const usuario =
+        JSON.parse(
+            localStorage.getItem(
+                "usuarioLogado"
+            )
+        );
+
+    if (
+        usuario &&
+        usuario.tipo === "admin"
+    ) {
+
+        areaAdmin.innerHTML = `
+
+            <a
+                href="../Html/cadastro-item.html"
+                class="btn btn-danger"
+            >
+
+                Adicionar Item
+
+            </a>
+
+        `;
+
+    }
+
+}
+
+
+// =======================================
+// LOGOUT
+// =======================================
+
+function logout() {
+
+    localStorage.removeItem(
+        "usuarioLogado"
+    );
+
+    window.location.href =
+        "../Html/login.html";
+
+}
+
+
+// =======================================
+// INICIALIZAÇÃO
+// =======================================
+
+if (document.getElementById("cards-container")) {
+    carregarItens();
+}
+
+if (document.getElementById("detalhes-container")) {
+    carregarDetalhes();
+}
+
+carregarUsuario();
+verificarAdmin();
+
+
+// =======================================
+// MENU USUÁRIO
+// =======================================
+
+function carregarMenuUsuario() {
+
+    const usuarioMenu =
+        document.getElementById("usuario-menu");
+
+    if (!usuarioMenu) return;
+
+    const usuario =
+        JSON.parse(localStorage.getItem("usuarioLogado"));
+
+    if (!usuario) {
+
+        usuarioMenu.innerHTML = `
+            <button
+                class="btn-menu-admin"
+                onclick="window.location.href='login.html'"
+            >
+                Fazer Login
+            </button>
+        `;
+
+        return;
+    }
+
+    let html = `
+        <p>
+            Logado como:
+            <br>
+            <strong>${usuario.nome}</strong>
+        </p>
+    `;
+
+    if (usuario.tipo === "admin") {
+
+        html += `
+            <button
+                class="btn-menu-admin"
+                onclick="window.location.href='admin.html'"
+            >
+                Adicionar Item
+            </button>
+        `;
+    }
+
+    html += `
+        <button
+            class="btn-menu-sair"
+            onclick="logout()"
+        >
+            Sair
+        </button>
+    `;
+
+    usuarioMenu.innerHTML = html;
+}
+
+function logout() {
+
+    localStorage.removeItem(
+        "usuarioLogado"
+    );
+
+    window.location.href =
+        "../Html/login.html";
+}
+
+carregarMenuUsuario();

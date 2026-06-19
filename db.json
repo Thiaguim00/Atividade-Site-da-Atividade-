@@ -1,0 +1,50 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "nome": "Administrador",
+      "email": "admin@email.com",
+      "senha": "123",
+      "tipo": "admin"
+    }
+  ],
+  "itens": [
+    {
+      "id": "1",
+      "nome": "Candy Cane",
+      "jogo": "Grand Piece Online",
+      "descricao": "Espada limitada do evento de natal.",
+      "conteudo": "Candy Cane foi uma arma exclusiva de evento no GPO. Atualmente ela não pode mais ser obtida normalmente, tornando-se extremamente rara.",
+      "raridade": "Limited",
+      "valor_trade": "Alto",
+      "evento": "Natal 2021",
+      "destaque": true,
+      "imagem_principal": "../img do site/cc.webp"
+    },
+    {
+      "id": "2",
+      "nome": "True Triple Yoru",
+      "jogo": "Blox Fruits",
+      "descricao": "Uma das espadas mais raras do jogo.",
+      "conteudo": "True Triple Yoru é extremamente rara e associada a contas especiais e administradores.",
+      "raridade": "Admin / Unobtainable",
+      "valor_trade": "Inestimável",
+      "evento": "Especial",
+      "destaque": true,
+      "imagem_principal": "../img do site/triple yoru.webp"
+    },
+    {
+      "id": "3",
+      "nome": "Marine Cap",
+      "jogo": "Grand Piece Online",
+      "descricao": "Acessório extremamente raro.",
+      "conteudo": "Marine Cap é um item antigo e difícil de encontrar atualmente no GPO.",
+      "raridade": "Admin / Unobtainable",
+      "valor_trade": "Absurdamente alto",
+      "evento": "Admin",
+      "destaque": false,
+      "imagem_principal": "../img do site/marine cap.webp"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
